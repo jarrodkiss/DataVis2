@@ -1,1 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Your Visualization Dashboard</title>
+  
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <style>
+    
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    p {
+      max-width: 800px;
+    }
+    .graph-container {
+      margin-bottom: 50px;
+    }
+  </style>
+</head>
+<body>
 
+  <h1>Your Visualization Dashboard</h1>
+  <p>Welcome to your data visualization dashboard. Below you will find a series of graphs that provide insights into arrivals and departures data.</p>
+
+  
+  <div id="graph1-container" class="graph-container">
+    <h2>Arrivals into Australia by Citizenship</h2>
+    <p>This map shows the number of arrivals into Australia by country of citizenship.</p>
+    <div id="Vis1_Arrivals_Map"></div>
+  </div>
+
+  
+  <div id="graph2-container" class="graph-container">
+    <h2>Total Arrivals and Departures by Year</h2>
+    <p>This line chart illustrates the total number of arrivals and departures per year.</p>
+    <div id="arrivals_departures_linechart"></div>
+  </div>
+
+
+  <script type="text/javascript">
+  
+    function handleError(error) {
+      console.error(error);
+    }
+
+    
+    vegaEmbed('#Vis1_Arrivals_Map', 'Vis1_Arrivals_Map.json').catch(handleError);
+
+    
+    vegaEmbed('#arrivals_departures_linechart', 'Total_LineGraph.json').catch(handleError);
+
+    
+  </script>
+
+</body>
+</html>
