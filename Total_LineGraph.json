@@ -5,13 +5,13 @@
     "height": 400,
     "data": {
       "url": "https://raw.githubusercontent.com/jarrodkiss/DataVis2/main/A2_Dataset.csv",
-      "format": {"type": "csv"}
+      "format": { "type": "csv" }
     },
     "transform": [
       {
         "aggregate": [
-          {"op": "sum", "field": "Arrivals", "as": "Total Arrivals"},
-          {"op": "sum", "field": "Departures", "as": "Total Departures"}
+          { "op": "sum", "field": "Arrivals", "as": "Total Arrivals" },
+          { "op": "sum", "field": "Departures", "as": "Total Departures" }
         ],
         "groupby": ["Year"]
       },
@@ -20,33 +20,45 @@
         "as": ["Type", "Count"]
       }
     ],
-    "encoding": {
-      "x": {
-        "field": "Year",
-        "type": "ordinal",
-        "title": "Year",
-        "axis": {"labelAngle": 45}
+    "layer": [
+      {
+        "mark": { "type": "rect", "color": "lightgray", "opacity": 0.5 },
+        "encoding": {
+          "x": { "datum": "2020", "type": "ordinal" },
+          "x2": { "datum": "2022", "type": "ordinal" },
+          "tooltip": { "value": "COVID-19 Pandemic (2020-2022). Resulting in a massive fall in arrivals and departures."}
+        }
       },
-      "y": {
-        "field": "Count",
-        "type": "quantitative",
-        "title": "Number of People"
-      },
-      "color": {
-        "field": "Type",
-        "type": "nominal",
-        "title": "Type",
-        "scale": {"scheme": "category10"}
-      },
-      "tooltip": [
-        {"field": "Year", "type": "ordinal", "title": "Year"},
-        {"field": "Type", "type": "nominal", "title": "Type"},
-        {"field": "Count", "type": "quantitative", "title": "Count"}
-      ]
-    },
-    "mark": {
-      "type": "line",
-      "point": true
-    }
+      {
+        "mark": {
+          "type": "line",
+          "point": true
+        },
+        "encoding": {
+          "x": {
+            "field": "Year",
+            "type": "ordinal",
+            "title": "Year",
+            "axis": { "labelAngle": 45 }
+          },
+          "y": {
+            "field": "Count",
+            "type": "quantitative",
+            "title": "Number of People"
+          },
+          "color": {
+            "field": "Type",
+            "type": "nominal",
+            "title": "Type",
+            "scale": { "scheme": "category10" }
+          },
+          "tooltip": [
+            { "field": "Year", "type": "ordinal", "title": "Year" },
+            { "field": "Type", "type": "nominal", "title": "Type" },
+            { "field": "Count", "type": "quantitative", "title": "Count" }
+          ]
+        }
+      }
+    ]
   }
   
