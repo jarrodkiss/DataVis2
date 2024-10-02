@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Monthly Arrivals for Top 10 Countries (Last 10 Years)",
+    "title": "Monthly Arrivals for Top 5 Countries Over the Last 10 Years",
     "data": {
       "url": "https://raw.githubusercontent.com/jarrodkiss/DataVis2/main/A2_Dataset.csv",
       "format": { "type": "csv" }
@@ -24,7 +24,7 @@
     "height": 500,
     "mark": {
       "type": "line",
-      "point": false,
+      "point": true,
       "interpolate": "linear",
       "clip": true
     },
@@ -43,6 +43,7 @@
         "field": "TotalArrivals",
         "type": "quantitative",
         "title": "Number of Arrivals"
+        
       },
       "color": {
         "field": "Country",
@@ -50,10 +51,12 @@
         "title": "Country",
         "scale": { "scheme": "category10" },
         "legend": {
-          "orient": "bottom",
+          "orient": "right",
           "title": "Country",
           "titleOrient": "top",
-          "columns": 5
+          "columns": 1,
+          "labelFontSize": 13,
+          "titleFontSize":13
         }
       },
       "tooltip": [
