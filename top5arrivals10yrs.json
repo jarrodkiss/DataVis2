@@ -51,7 +51,7 @@
         "title": "Country",
         "scale": { "scheme": "category10" },
         "legend": {
-          "orient": "right",
+          "orient": "top-right",
           "title": "Country",
           "titleOrient": "top",
           "columns": 1,
