@@ -20,15 +20,22 @@
         "as": ["Type", "Count"]
       }
     ],
-    "layer": [
-      {
-        "mark": { "type": "rect", "color": "lightgray", "opacity": 0.5 },
-        "encoding": {
-          "x": { "datum": "2020", "type": "ordinal" },
-          "x2": { "datum": "2022", "type": "ordinal" },
-          "tooltip": { "value": "COVID-19 Pandemic (2020-2022). Resulting in a massive fall in arrivals and departures."}
-        }
-      },
+    {
+  "config": {
+    "tooltip": {
+      "font": "Open Sans",
+      "fontSize": 16
+    }
+  },
+  "layer": [
+    {
+      "mark": { "type": "rect", "color": "lightgray", "opacity": 0.5 },
+      "encoding": {
+        "x": { "datum": "2020", "type": "ordinal" },
+        "x2": { "datum": "2022", "type": "ordinal" },
+        "tooltip": { "value": "COVID-19 Pandemic (2020-2022). Resulting in a massive fall in arrivals and departures." }
+      }
+    },
       {
         "mark": {
           "type": "line",
