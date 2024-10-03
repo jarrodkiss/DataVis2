@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Monthly Arrivals for Top 5 Countries Over the Last 10 Years",
+    "title": "",
     "width": 1000,
     "height": 500,
     "data": {
