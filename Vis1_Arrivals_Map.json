@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Arrivals into Australia by Citizenship",
+    "title": "",
     "width": 800,
     "height": 500,
     "projection": {"type": "equalEarth"},
