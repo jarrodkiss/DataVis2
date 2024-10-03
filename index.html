@@ -24,18 +24,19 @@
       margin-bottom: 50px;
     }
     .graph-container {
-      display: flex; /* Use flexbox to make paragraph and graph appear side by side */
-      flex-wrap: wrap; /* Allow wrapping if the screen size is too small */
+      display: flex; /* Use flexbox to position graph and text side by side */
       align-items: flex-start; /* Align items at the top */
+      gap: 20px; /* Add space between the graph and the paragraph */
     }
     .text-content {
-      flex: 1; /* Make the text container take up 1 part of the available space */
-      margin-left: 20px; /* Add spacing between graph and text */
-      min-width: 300px; /* Ensure it doesn't get too narrow */
+      flex-basis: 300px; /* Set a specific width for the text container */
+      margin-left: 20px; /* Add additional spacing if necessary */
+      max-width: 350px; /* Prevent the text from getting too wide */
     }
     .graph-content {
-      flex: 2; /* Make the graph container take up 2 parts of the available space */
-      min-width: 400px; /* Ensure the graph container doesn't get too narrow */
+      flex-basis: 800px; /* Set the width of the graph explicitly */
+      max-width: 800px; /* Ensure the graph doesn't grow beyond 800px */
+      min-width: 600px; /* Ensure it doesn't shrink too much */
     }
   </style>
 </head>
@@ -44,7 +45,6 @@
   <h1>Arrivals and Departures into Australia by Country of Citizenship</h1>
   <p>This dashboard is designed to outline the countries that have contributed to Australian tourism and migration since 1991.</p>
 
-  
   <div class="graph-section">
     <h2>Arrivals into Australia by Citizenship</h2>
     <div class="graph-container">
