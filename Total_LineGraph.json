@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Total Arrivals and Departures by Year",
+    "title": "",
     "width": 800,
     "height": 400,
     "data": {
