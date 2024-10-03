@@ -1,26 +1,25 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "",
-    "width": 800,
-    "height": 400,
-    "data": {
-      "url": "https://raw.githubusercontent.com/jarrodkiss/DataVis2/main/A2_Dataset.csv",
-      "format": { "type": "csv" }
-    },
-    "transform": [
-      {
-        "aggregate": [
-          { "op": "sum", "field": "Arrivals", "as": "Total Arrivals" },
-          { "op": "sum", "field": "Departures", "as": "Total Departures" }
-        ],
-        "groupby": ["Year"]
-      },
-      {
-        "fold": ["Total Arrivals", "Total Departures"],
-        "as": ["Type", "Count"]
-      }
-    ],
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "",
+  "width": 800,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/jarrodkiss/DataVis2/main/A2_Dataset.csv",
+    "format": { "type": "csv" }
+  },
+  "transform": [
     {
+      "aggregate": [
+        { "op": "sum", "field": "Arrivals", "as": "Total Arrivals" },
+        { "op": "sum", "field": "Departures", "as": "Total Departures" }
+      ],
+      "groupby": ["Year"]
+    },
+    {
+      "fold": ["Total Arrivals", "Total Departures"],
+      "as": ["Type", "Count"]
+    }
+  ],
   "config": {
     "tooltip": {
       "font": "Open Sans",
@@ -36,36 +35,35 @@
         "tooltip": { "value": "COVID-19 Pandemic (2020-2022). Resulting in a massive fall in arrivals and departures." }
       }
     },
-      {
-        "mark": {
-          "type": "line",
-          "point": true
+    {
+      "mark": {
+        "type": "line",
+        "point": true
+      },
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "ordinal",
+          "title": "Year",
+          "axis": { "labelAngle": 45 }
         },
-        "encoding": {
-          "x": {
-            "field": "Year",
-            "type": "ordinal",
-            "title": "Year",
-            "axis": { "labelAngle": 45 }
-          },
-          "y": {
-            "field": "Count",
-            "type": "quantitative",
-            "title": "Number of People"
-          },
-          "color": {
-            "field": "Type",
-            "type": "nominal",
-            "title": "Type",
-            "scale": { "scheme": "category10" }
-          },
-          "tooltip": [
-            { "field": "Year", "type": "ordinal", "title": "Year" },
-            { "field": "Type", "type": "nominal", "title": "Type" },
-            { "field": "Count", "type": "quantitative", "title": "Count" }
-          ]
-        }
+        "y": {
+          "field": "Count",
+          "type": "quantitative",
+          "title": "Number of People"
+        },
+        "color": {
+          "field": "Type",
+          "type": "nominal",
+          "title": "Type",
+          "scale": { "scheme": "category10" }
+        },
+        "tooltip": [
+          { "field": "Year", "type": "ordinal", "title": "Year" },
+          { "field": "Type", "type": "nominal", "title": "Type" },
+          { "field": "Count", "type": "quantitative", "title": "Count" }
+        ]
       }
-    ]
-  }
-  
+    }
+  ]
+}
