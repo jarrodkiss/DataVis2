@@ -117,9 +117,8 @@
           "align": "left",
           "dx": 5,
           "dy": -5,
-          "fontSize": 18,
-          "fontWeight": "bold",
-          "font":"Lato"
+          "fontSize": 16,
+          "font":"Open Sans"
         },
         "transform": [
           {
