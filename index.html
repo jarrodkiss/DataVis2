@@ -1,28 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Your Visualization Dashboard</title>
-  
-  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-  
-  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700|Open+Sans:400,600|Source+Code+Pro:400">
   <style>
-    
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Open Sans', sans-serif;
+      color: #333;
+      background-color: #fafafa;
       margin: 20px;
+      line-height: 1.5;
     }
+
     h1, h2 {
+      font-family: 'Roboto', sans-serif;
       color: #333;
     }
+
+    h1 {
+      font-size: 36px;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: 28px;
+      font-weight: 600;
+    }
+
     p {
+      font-size: 18px;
       max-width: 800px;
     }
+
     .graph-container {
       margin-bottom: 50px;
+    }
+
+    .data-label {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 16px;
     }
   </style>
 </head>
