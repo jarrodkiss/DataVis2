@@ -10,7 +10,6 @@
   
   <link rel="stylesheet" type="text/css" href="css/styles.css">
   <style>
-    
     body {
       font-family: Arial, sans-serif;
       margin: 20px;
@@ -21,8 +20,20 @@
     p {
       max-width: 800px;
     }
-    .graph-container {
+    .graph-section {
       margin-bottom: 50px;
+      display: flex; /* Use flexbox to make paragraph and graph appear side by side */
+      flex-wrap: wrap; /* Allow wrapping if the screen size is too small */
+      align-items: flex-start; /* Align items at the top */
+    }
+    .text-content {
+      flex: 1; /* Make the text container take up 1 part of the available space */
+      margin-right: 20px; /* Add spacing between text and graph */
+      min-width: 300px; /* Ensure it doesn't get too narrow */
+    }
+    .graph-content {
+      flex: 2; /* Make the graph container take up 2 parts of the available space */
+      min-width: 300px; /* Ensure the graph container doesn't get too narrow */
     }
   </style>
 </head>
@@ -64,15 +75,12 @@
     <div class="graph-content" id="top5arrivals10yrs"></div>
   </div>
 
-
-
   <script type="text/javascript">
   
     function handleError(error) {
       console.error(error);
     }
 
-    
     vegaEmbed('#Vis1_Arrivals_Map', 'Vis1_Arrivals_Map.json').catch(handleError);
 
     vegaEmbed('#Vis2_Departures_Map', 'Vis2_Departures_Map.json').catch(handleError);
@@ -81,7 +89,6 @@
     
     vegaEmbed('#arrivals_departures_linechart', 'Total_LineGraph.json').catch(handleError);
 
-    
   </script>
 
 </body>
