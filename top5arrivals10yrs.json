@@ -28,10 +28,14 @@
       "filter": "(datum.Year >= (currentYear - 9)) && (indexof(topCountries, datum.Country) >= 0) && datum.Arrivals > 0"
     },
     {
+      "calculate": "datetime(datum.Year, datum.Month - 1, 1)",
+      "as": "Date"
+    },
+    {
       "aggregate": [
         { "op": "sum", "field": "Arrivals", "as": "TotalArrivals" }
       ],
-      "groupby": ["Year", "Month", "Country"]
+      "groupby": ["Date", "Country"]
     }
   ],
   "layer": [
@@ -44,9 +48,8 @@
       },
       "encoding": {
         "x": {
-          "field": "Year",
+          "field": "Date",
           "type": "temporal",
-          "timeUnit": "yearmonth",
           "title": "Date",
           "axis": {
             "format": "%Y-%m",
@@ -76,9 +79,8 @@
         "tooltip": [
           { "field": "Country", "type": "nominal", "title": "Country" },
           {
-            "field": "Year",
+            "field": "Date",
             "type": "temporal",
-            "timeUnit": "yearmonth",
             "title": "Date",
             "format": "%B %Y"
           },
@@ -98,11 +100,11 @@
       },
       "transform": [
         {
-          "filter": "datum.Country == 'New Zealand' && datum.Year == 2021 && datum.Month == 4"
+          "filter": "datum.Country == 'New Zealand' && year(datum.Date) == 2021 && month(datum.Date) == 2"
         }
       ],
       "encoding": {
-        "x": { "field": "Year", "type": "temporal", "timeUnit": "yearmonth" },
+        "x": { "field": "Date", "type": "temporal" },
         "y": { "field": "TotalArrivals", "type": "quantitative" }
       }
     },
@@ -112,16 +114,16 @@
         "align": "left",
         "dx": 5,
         "dy": -5,
-        "fontSize": 18,
+        "fontSize": 16,
         "font": "Open Sans"
       },
       "transform": [
         {
-          "filter": "datum.Country == 'New Zealand' && datum.Year == 2021 && datum.Month == 4"
+          "filter": "datum.Country == 'New Zealand' && year(datum.Date) == 2021 && month(datum.Date) == 2"
         }
       ],
       "encoding": {
-        "x": { "field": "Year", "type": "temporal", "timeUnit": "yearmonth" },
+        "x": { "field": "Date", "type": "temporal" },
         "y": { "field": "TotalArrivals", "type": "quantitative" },
         "text": { "value": "April 2021 - Trans-Tasman Bubble Opened." },
         "color": { "value": "black" }
